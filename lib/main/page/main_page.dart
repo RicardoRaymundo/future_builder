@@ -21,19 +21,3 @@ class _MainPageState extends State<MainPage> {
     );
   }
 }
-/*
-FutureBuilder(
-          future: MainService.getUsers(),
-          builder: (BuildContext context, AsyncSnapshot snapshot) {
-            if (snapshot.connectionState == ConnectionState.waiting) {
-              return Loading();
-            } else if (snapshot.connectionState == ConnectionState.done) {
-              if (snapshot.hasError) {
-                return Text('ERROR!!!');
-              } else {
-                return UserList(snapshot);
-              }
-            }
-          },
-        ),
- */

@@ -5,9 +5,7 @@ import 'package:future_builder/user/userx.dart';
 
 class MainService {
   static FutureBuilder users() {
-    return ApiConnect.get(
-        "http://www.json-generator.com/api/json/get/cfwZmvEBbC?indent=2",
-        (jsonData) {
+    final processData = (jsonData) {
       List<Userx> users = [];
 
       for (var item in jsonData) {
@@ -16,10 +14,16 @@ class MainService {
       }
 
       return users;
-    }, (snapshot) {
+    };
+
+    final createlist = (snapshot) {
       return UserList(snapshot);
-    });
+    };
+
+    return ApiConnect.get(
+        "http://www.json-generator.com/api/json/get/cfwZmvEBbC?indent=2",
+        processData,
+        createlist
+    );
   }
 }
-
-
